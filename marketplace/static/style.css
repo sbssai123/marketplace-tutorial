@@ -1,0 +1,9 @@
+.cart-image {
+    filter: brightness(0) invert(1);
+    width: 50%;
+    height: 50%;
+}
+
+.mt-10 {
+    margin-top: 10%;
+}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Cart Summary</h3>
+    <div class="row">
+        <div class="col-6">
+            {% for item in cart_items %}
+                <div>
+                    <b>{{ item['item_name'] }}</b> - ${{ item['price'] }}
+                    <form action="{{ url_for('cart.delete_item', cart_item_id=item['cart_id']) }}" method="post">
+                        <button type="submit" class="close" aria-label="Close">
+                             &times;
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    <img width=200px height= 200px src="../../static/img/{{ item['item_image'] }}">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-6">
+            Total Cost: $ {{total_price}}
+        </div>
+    </div>
+</div>
+{% endblock %}
