@@ -8,7 +8,8 @@ from marketplace.auth import login_required, admin_only
 from marketplace.db import get_db
 
 bp = Blueprint('store', __name__)
-UPLOAD_FOLDER = '/Users/sreeyasai/Documents/Github_Projects/flask-tutorial/marketplace/static/img'
+dir_path = os.path.dirname(os.path.realpath(__file__))
+UPLOAD_FOLDER = dir_path + '/static/img'
 
 @bp.route('/')
 def index():
