@@ -1,26 +1,29 @@
-from flask import (Flask, render_template)
+from flask import (Flask, render_template, request)
 
 app = Flask(__name__, instance_relative_config=True)
 
 @app.route("/")
 def first_program():
-    return "Hello, World!"
+    pass
 
 @app.route("/hello")
 def hello_world_pretty():
-    x = "Hello World!"
-    return render_template('hello.html', hello=x)
+    pass
 
 @app.route("/practice", methods=['GET'])
 def python_fundamentals():
     return render_template("practice.html")
 
 # TODO: Define functions that:
-# 1. Finds the sum of 5 and 6
+# 1. Calculates the sum of 5 and 6
 
 # 2. Concatenates the words "Yes," "I" "Love" "Python"
 
 # 3. Subtracts 5 from the number the user inputs
+@app.route('/subtract_number', methods=['POST', 'GET'])
+def subtract5():
+    return render_template("practice.html", subtract5=subtract5)
+
 
 # 4. Concatenates the word "Hello" and the Name the User Inputs
 
