@@ -1,0 +1,91 @@
+<!doctype html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <section class="container">
+        <!-- Exercise 1 and 2 -->
+        <div class="row mt-5">
+            <div class="col-6">
+                <h3>Exercise 1</h3>
+                <b>The sum of 5 and 6 is:</b> {{fiveSix}}
+            </div>
+            <div class="col-6">
+                <h3>Exercise 2</h3>
+                <b> Do you love Python?</b> {{pythonLoveString}}
+            </div>
+        </div>
+
+        <!-- Exercise 3 and 4 -->
+        <div class="row mt-5">
+            <div class="col-6">
+                <h3>Exercise 3</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="number">Give me a Number:</label>
+                        <input class="form-control" type="number" name="number" id="number">
+                    </div>
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="col-6">
+                <h3>Exercise 4</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="name">What is your name?</label>
+                        <input class="form-control" name="name" id="name">
+                    </div>
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-6">
+                <h3>Exercise 5</h3>
+                Here is a string: {{listToString}}
+            </div>
+            <div class="col-6">
+                <h3>Exercise 6</h3>
+                Sum of list of numbers: {{listToSum}}
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-6">
+                <h3>Exercise 7</h3>
+                <h5>Here is a button, click it!!</h5>
+                <form action="" method="post">
+                    <input class="btn btn-info" type="submit" value="click me!!">
+                </form>
+            </div>
+            <div class="col-6">
+                <h3>Exercise 8</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="weather">What is the weather today?</label>
+                        <input class="form-control" name="weather" id="weather">
+                    </div>
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5">
+            <div class="col-6">
+                <h3>Exercise 9</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="shape">Pick a shape</label>
+                        <input class="form-control" name="shape" id="shape">
+                    </div>
+                    <div class="form-group">
+                        <label for="color">Pick a color</label>
+                        <input class="form-control" name="color" id="color">
+                    </div>
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
