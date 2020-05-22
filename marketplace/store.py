@@ -15,15 +15,11 @@ UPLOAD_FOLDER = dir_path + '/static/img'
 def index():
     if not g.user:
         return redirect(url_for('auth.login'))
-    db = get_db()
-    items = db.execute(
-        'SELECT i.id, i.item_name, i.item_description, i.item_image, i.price'
-        ' FROM item i'
-    ).fetchall()
-    return render_template('store/index.html', items=items)
+    # TODO: Select all of the items in the store and display
+    # them on the homepage
 
 
-@bp.route('/create', methods=('GET', 'POST'))
+@bp.route('/create', methods=['GET', 'POST'])
 @login_required
 @admin_only
 def create():
@@ -33,21 +29,12 @@ def create():
         item_image = request.files["image"]
         price = request.form["price"]
 
+        # Save image that we uploaded to a local file system
         if item_image:
             secure_filename(item_image.filename)
             item_image.save(os.path.join(UPLOAD_FOLDER, item_image.filename))
 
-        if not item_name:
-            error = 'Title is required.'
-            flash(error)
-        else :
-            db = get_db()
-            db.execute(
-                'INSERT INTO item (item_name, item_description, item_image, price)'
-                ' VALUES (?, ?, ?, ?)',
-                (item_name, item_description, item_image.filename, price)
-            )
-            db.commit()
+            # TODO: Add store item to the Item table in the DB
             flash(item_name + ' was added to the store', 'success')
 
     return render_template('store/create.html')
@@ -57,7 +44,5 @@ def create():
 @login_required
 @admin_only
 def delete(item_id):
-    db = get_db()
-    db.execute('DELETE FROM item WHERE id = ?', [item_id])
-    db.commit()
+    # TODO: Delete an item from the database
     return redirect(url_for('store.index'))

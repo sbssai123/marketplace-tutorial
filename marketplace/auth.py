@@ -29,13 +29,8 @@ def register():
             error = 'User {} is already registered.'.format(username)
 
         admin = 1 if isAdmin else 0
-        if error is None:
-            db.execute(
-                'INSERT INTO user (name, username, password, admin) VALUES (?, ?, ?, ?)',
-                (name, username, generate_password_hash(password), admin)
-            )
-            db.commit()
-            return redirect(url_for('auth.login'))
+        # TODO: If there is no error then insert the information about the user into
+        # the database
 
         flash(error)
     return render_template('auth/register.html')
@@ -51,10 +46,7 @@ def login():
             'SELECT * FROM user WHERE username = ?', (username,)
         ).fetchone()
 
-        if user is None:
-            error = 'Incorrect username.'
-        elif not check_password_hash(user['password'], password):
-            error = 'Incorrect password.'
+        # TODO: Use the check_password_hash function to check password with username
 
         if error is None:
             session.clear()
@@ -93,9 +85,8 @@ def login_required(view):
 def admin_only(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
-        if not g.user['admin']:
-            return redirect(url_for('index'))
-
+        # TODO: Finish function so that if they are not admins, redirect to index page.
+        pass
         return view(**kwargs)
 
     return wrapped_view

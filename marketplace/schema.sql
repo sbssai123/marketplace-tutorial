@@ -10,13 +10,7 @@ CREATE TABLE user (
   admin INTEGER NOT NULL
 );
 
-CREATE TABLE item (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    item_name TEXT NOT NULL,
-    item_description TEXT,
-    item_image BLOB,
-    price INTEGER NOT NULL
-);
+-- TODO: Create a table to represent an Item in the store
 
 CREATE TABLE cart (
     cart_id INTEGER PRIMARY KEY AUTOINCREMENT,
