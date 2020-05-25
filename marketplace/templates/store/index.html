@@ -18,7 +18,7 @@
               <input class="btn btn-primary" type="submit" value="Add to Cart">
             </form>
             {% if g.user['admin']%}
-              <form action="{{ url_for('store.delete', item_id=item['id']) }}" method="post">
+              <form action="" method="post">
                 <input class="btn btn-danger" type="submit" value="Remove">
               </form>
             {% endif %}
