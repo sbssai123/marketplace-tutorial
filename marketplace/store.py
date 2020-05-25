@@ -57,7 +57,5 @@ def create():
 @login_required
 @admin_only
 def delete(item_id):
-    db = get_db()
-    db.execute('DELETE FROM item WHERE id = ?', [item_id])
-    db.commit()
-    return redirect(url_for('store.index'))
+    # TODO: Delete selected item from store
+    pass
